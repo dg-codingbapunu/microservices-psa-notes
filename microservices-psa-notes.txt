@@ -291,6 +291,13 @@ management.endpoints.web.exposure.include=*
 spring.zipkin.base-url=http://localhost:9411
 spring.sleuth.sampler.probability=1.0
 
+
+-> What is Feign Client
+A Feign Client is an interface that declares methods corresponding to the REST endpoints of another microservice, allowing declarative service-to-service communication.
+
+-> What LoadBalancing?
+Load balancing is the process of distributing incoming requests across multiple service instances so that no single instance is overloaded.
+
 Very Important Note:
 ##########################
 ✅ Tools That Support Service Name Access via Eureka:
@@ -551,6 +558,7 @@ Step 1: Create AuthService with Spring Security & JWT Token
 Step 2: When you login it should generate JWT Token
 Step 3: Verify the Token in API Gateway using JwtAuthenticationFilter implements GlobalFilter class
 Step 4:  Inside Filter method verify the token
+
 
 
 
