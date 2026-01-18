@@ -74,7 +74,7 @@ Easy to scale and maintain
 Services communicate via REST or messaging
 
 
-Challanges In microservices -------------------- ----------
+Challanges In monolithic -------------------- ----------
 🔹 All Major Challenges (Point-wise)
 
 Full redeployment for small changes
@@ -121,7 +121,9 @@ Cannot deploy or roll back individual features independently.
 
 🔧 What is a Service Registry in Microservices?
 #####################################################
-A Service Registry is a central directory where all microservices register themselves so they can be discovered and communicate with each other without hardcoding IPs or URLs.
+A Service Registry is a central directory where all microservices register themselves so they can be discovered and communicate with each other without hardcoding IPs or URLs. Register based on name in eureka server.
+Even if the IP, port, or URL changes, services can still communicate with each other.
+Service Discovery finds services from the Service Registry.
 
 In Spring Boot, the most common Service Registry is Eureka Server (from Netflix OSS).
 
@@ -142,8 +144,8 @@ Steps to Create Eureka Server / Service Registry
 |      | c) Add @EnableEurekaServer in main class             |
 |      | d) Configure application.properties:                 |
 |         server.port=8761                                    |
-|         eureka.client.register-with-eureka=false            |
-|         eureka.client.fetch-registry=false  
+|         eureka.client.register-with-eureka=false   // it means it do not consider it self client because it server         |
+|         eureka.client.fetch-registry=false  // it means it cannot fetch the resister data
 Note: 
 This tells the Eureka Server:
 Don't register itself as a client.
@@ -549,6 +551,7 @@ Step 1: Create AuthService with Spring Security & JWT Token
 Step 2: When you login it should generate JWT Token
 Step 3: Verify the Token in API Gateway using JwtAuthenticationFilter implements GlobalFilter class
 Step 4:  Inside Filter method verify the token
+
 
 
 
